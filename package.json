@@ -1,0 +1,17 @@
+{
+  "name": "wheel-size-calculator",
+  "version": "1.0.0",
+  "description": "Bike wheel size and circumference calculator. Works out rolling circumference for a bike computer from ISO rim size and tyre width.",
+  "type": "module",
+  "files": ["js", "css", "index.html", "docs"],
+  "scripts": {
+    "test": "node --test test/",
+    "start": "python3 -m http.server 8000"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VishalSharmavj/wheel-size-calculator.git"
+  },
+  "homepage": "https://bikeshala.com/tools/wheel-size-calculator/"
+}

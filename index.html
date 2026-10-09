@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wheel Size Calculator</title>
+<meta name="description" content="Open-source bike wheel size calculator. Rolling circumference for a bike computer from ISO rim diameter and tyre width.">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/calculator.css">
+</head>
+<body>
+<main class="wrap">
+
+	<header class="intro">
+		<h1>Wheel Size Calculator</h1>
+		<p>Work out the rolling circumference to put into a bike computer, from
+		your rim's ISO diameter and tyre width.</p>
+	</header>
+
+	<form class="panel" id="form" autocomplete="off">
+		<section class="group">
+			<h2>Your wheel</h2>
+			<div class="row">
+				<label class="field">
+					<span>Pick a common size</span>
+					<select id="size-preset"><option value="">Choose…</option></select>
+				</label>
+				<label class="field">
+					<span>ISO rim diameter <small>mm</small></span>
+					<input type="number" id="iso" value="622" min="100" max="700" step="1">
+				</label>
+				<label class="field">
+					<span>Tyre width <small>mm</small></span>
+					<input type="number" id="width" value="28" min="10" max="150" step="0.5">
+				</label>
+			</div>
+			<p class="note">The ISO diameter is the first number in a marking like
+			<em>622-28</em> or <em>28-622</em> on your tyre sidewall.</p>
+		</section>
+
+		<section class="group">
+			<h2>Tyre squash</h2>
+			<div class="row">
+				<label class="field">
+					<span>How your tyre sits</span>
+					<select id="squash-preset"></select>
+				</label>
+				<label class="field">
+					<span>Squash <small>%</small></span>
+					<input type="number" id="squash" value="0.6" min="0" max="5" step="0.1">
+				</label>
+			</div>
+			<p class="note">How much the tyre flattens under you. It shortens the
+			distance travelled per turn by about this much.</p>
+		</section>
+	</form>
+
+	<section class="results" aria-live="polite">
+		<ul class="problems" id="problems" hidden></ul>
+
+		<div class="cards">
+			<article class="card wide" id="card-main">
+				<h3>Put this in your computer</h3>
+				<p class="length"><output id="rolling">—</output><span>mm</span></p>
+				<p class="order" id="rolling-alt"></p>
+				<ul class="meta" id="meta"></ul>
+			</article>
+		</div>
+
+		<dl class="stats">
+			<div><dt>Overall diameter</dt><dd id="stat-dia">—</dd></div>
+			<div><dt>Circumference</dt><dd id="stat-circ">—</dd></div>
+			<div><dt>Turns per km</dt><dd id="stat-revs">—</dd></div>
+			<div><dt>ETRTO</dt><dd id="stat-iso">—</dd></div>
+		</dl>
+		<p class="note">Circumference is the wheel measured round, before anyone
+		sits on it. The figure above it is what the wheel actually travels.</p>
+	</section>
+
+	<section class="panel mt">
+		<h2>Measure it instead</h2>
+		<p class="note" style="margin-top:0">A roll-out beats any estimate — it
+		accounts for your weight, your pressure and your tyre's real shape.
+		Mark the tyre and floor at the valve, sit on the bike, roll forward in a
+		straight line, and measure between the marks.</p>
+		<div class="row">
+			<label class="field">
+				<span>Distance rolled <small>mm</small></span>
+				<input type="number" id="ro-dist" placeholder="e.g. 6351" min="0" step="1">
+			</label>
+			<label class="field">
+				<span>Full turns</span>
+				<input type="number" id="ro-turns" value="3" min="1" max="20" step="1">
+			</label>
+		</div>
+		<p class="same" id="ro-out" hidden></p>
+	</section>
+
+	<footer class="foot">
+		<p><strong>This is a simplified build.</strong> It covers the sizing maths
+		and a roll-out helper. For a full size chart, a check on whatever number
+		is already in your computer, and how far that has thrown your totals,
+		use the full version:</p>
+		<p class="cta"><a href="https://bikeshala.com/tools/wheel-size-calculator/">Wheel Size Calculator on Bikeshala →</a></p>
+		<p class="src">Source: <a href="https://github.com/VishalSharmavj/wheel-size-calculator">github.com/VishalSharmavj/wheel-size-calculator</a> · MIT</p>
+	</footer>
+
+</main>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
